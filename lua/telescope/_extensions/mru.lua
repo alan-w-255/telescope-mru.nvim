@@ -6,10 +6,11 @@ local MRUFiles = function (opts)
     opts = opts or {}
     local mrufiles = vim.fn["MruGetFiles"]()
     local entries  = {}
+    local cwd = vim.fn.getcwd()
     for _, v in ipairs(mrufiles) do
         local path = require'plenary.path':new(v)
         if path:expand() ~= vim.api.nvim_buf_get_name(0) then
-            table.insert(entries, path:expand())
+            table.insert(entries, path:make_relative(cwd))
         end
     end
     pickers.new(opts, {
