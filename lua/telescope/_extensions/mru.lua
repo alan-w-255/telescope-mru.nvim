@@ -23,8 +23,8 @@ local MRUFiles = function (opts)
     }):find()
 end
 
-require'telescope'.register_extension({
+return require'telescope'.register_extension{
     exports = {
         mru = MRUFiles,
     }
-})
+}
