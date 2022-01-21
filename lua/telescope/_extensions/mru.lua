@@ -1,6 +1,7 @@
 local pickers = require'telescope.pickers'
-local finders = require'telescope.finders'
+local async_static_finder = require'telescope.finders.async_static_finder'
 local conf = require'telescope.config'.values
+local make_entry = require'telescope.make_entry'
 
 local MRUFiles = function (opts)
     opts = opts or {}
@@ -13,11 +14,12 @@ local MRUFiles = function (opts)
             table.insert(entries, path:make_relative(cwd))
         end
     end
+    opts.entry_maker = opts.entry_maker or make_entry.gen_from_file(opts)
+    opts.results = entries
+
     pickers.new(opts, {
         prompt_title = "MRU files",
-        finder = finders.new_table {
-            results = entries,
-        },
+        finder = async_static_finder(opts),
         sorter = conf.file_sorter(opts),
         previewer = conf.file_previewer(opts),
     }):find()
