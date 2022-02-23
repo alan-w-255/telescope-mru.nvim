@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-install and load plugin `yegappan/mru` `nvim-telescope/telescope.nvim`
+install and load plugin `yegappan/mru` and `nvim-telescope/telescope.nvim`
 
 ## install
 
@@ -18,3 +18,10 @@ use {
     end,
 }
 ```
+
+## usage
+
+`:Telescope mru`
+
+## preview
+![Cheese_Wed-23Feb22_12 52](https://user-images.githubusercontent.com/15076589/155263653-39021c59-0cfb-49a3-8305-fd31a536a1d0.png)
