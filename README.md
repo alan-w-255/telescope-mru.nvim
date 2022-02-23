@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-install and load plugin `yegappan/mru` and `nvim-telescope/telescope.nvim`
+Install and load plugins `yegappan/mru` and `nvim-telescope/telescope.nvim`
 
 ## install
 
